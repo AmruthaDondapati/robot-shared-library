@@ -4,4 +4,4 @@ def LintChecks(message, URL) {
 }
 
 // Calling the info function and supplying both the values. 
-def call("DevOps", "DevOpsTraining.com")
+LintChecks("DevOps", "DevOpsTraining.com")
