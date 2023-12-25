@@ -2,7 +2,8 @@
 def LintChecks(COMPONENT)) {
     sh '''
     echo "Installing JSlint"
-    echo "lint checks completed for $COMPONENT" '''
+    echo "lint checks completed for $COMPONENT" 
+    '''
 }
 
 // Calling the info function and supplying both the values. 
