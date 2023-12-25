@@ -9,7 +9,7 @@ def LintChecks(COMPONENT) {
 // Calling the info function and supplying both the values. 
 // LintChecks("DevOps", "DevOpsTraining.com")
 
-def call{COMPONENT} {
+def call(COMPONENT) {
     pipeline {
         agent any 
         stages {
