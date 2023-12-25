@@ -1,7 +1,7 @@
 // This is how we declare a function in groovy.
 def LintChecks(COMPONENT) {
     sh '''
-    echo "Installing JSlint"
+    echo "Installing manven
     echo "lint checks completed for ${COMPONENT}" 
     '''
 }
