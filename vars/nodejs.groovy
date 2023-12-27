@@ -4,7 +4,7 @@ def LintChecks(COMPONENT) {
     sh "echo lint checks completed for ${COMPONENT}"
 }
 
-def LintChecks(COMPONENT) {
+def SonarChecks(COMPONENT) {
     sh "echo Checking the Quality Checks"
     sh "sonar-scanner -Dsonar.host.url=http://${sonar_URL}:9000 -Dsonar.projectKey=$("COMPONENT") -Dsonar.sources=. -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW}"
 }
