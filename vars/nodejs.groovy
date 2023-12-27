@@ -6,7 +6,7 @@ def LintChecks(COMPONENT) {
 
 def SonarChecks(COMPONENT) {
     sh "echo Checking the Quality Checks"
-    sh "sonar-scanner -Dsonar.host.url=http://172.31.28.17:9000 -Dsonar.projectKey=${COMPONENT} -Dsonar.sources=. -Dsonar.login=${Sonar_USR} -Dsonar.password=${Sonar_PSW}"
+    sh "sonar-scanner -Dsonar.host.url=http://172.31.28.17:9000 -Dsonar.projectKey=${COMPONENT} -Dsonar.sources=. -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW}"
 }
 // Calling the info function and supplying both the values. 
 // LintChecks("DevOps", "DevOpsTraining.com")
@@ -15,7 +15,7 @@ def call(COMPONENT) {
     pipeline {
         agent any
         environment {
-            Sonar = credentials ('SONAR')
+            SONAR = credentials ('SONAR')
             sonar_URL= "172.31.28.17"
         }
         stages {
