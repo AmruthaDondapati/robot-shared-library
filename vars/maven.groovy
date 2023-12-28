@@ -35,6 +35,22 @@ def call(COMPONENT) {
                     }
                 }
             }
+            stage ('Downloading the dependencies') {
+                when { 
+                    expression { env.TAG_NAME != null } 
+                }
+                steps {
+                    sh "npm install"
+                }
+            }
+            stage ('Preparing the artifacts') {
+                when { 
+                    expression { env.TAG_NAME != null } 
+                }
+                steps {
+                    sh "Uploading the artifact to nexus"
+                }
+            }
         }
     }
 }
