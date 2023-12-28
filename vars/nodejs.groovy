@@ -4,14 +4,6 @@ def LintChecks(COMPONENT) {
     sh "echo lint checks completed for ${COMPONENT}"
 }
 
-def SonarChecks(COMPONENT) {
-    sh "echo Checking the Quality Checks"
-    sh "sonar-scanner -Dsonar.host.url=http://${sonar_URL}:9000 -Dsonar.sources=. -Dsonar.projectKey=${COMPONENT} -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW}"
-    sh  "curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/sonar-scanner/quality-gate > quality-gate.sh"
-    sh  "bash -x quality-gate.sh ${SONAR_USR} ${SONAR_PSW} ${SONAR_URL} ${COMPONENT}"
-    sh " echo sonar checks completed for ${COMPONENT}.....!!!!!"
-}
-
 
 def call(COMPONENT) {
     pipeline {
@@ -31,6 +23,7 @@ def call(COMPONENT) {
             stage ('SonarChecks') {
                 steps {
                     script {
+                        env.ARGS= "-Dsonar.sources=."
                         common.SonarChecks(COMPONENT)
                     }
                 }
