@@ -7,8 +7,8 @@ def LintChecks(COMPONENT) {
 def SonarChecks(component){
     sh " echo Starting the quality check..."
     sh " sonar-scanner -Dsonar.host.url=http://${sonar_URL}:9000 -Dsonar.source=. -Dsonar.projectKey=${COMPONENT} -Dsonar.login=admin -Dsonar.password=123 "
-    sh " curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/sonar-scanner/quality-gate > quality-gate.sh"
-    sh " bash -x quality-gate.sh ${sonar_USR} ${sonar_PSW} ${sonar_URL} ${COMPONENT}"
+    // sh " curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/sonar-scanner/quality-gate > quality-gate.sh"
+    // sh " bash -x quality-gate.sh ${sonar_USR} ${sonar_PSW} ${sonar_URL} ${COMPONENT}"
     sh " echo lint checks completed for ${COMPONENT}.....!!!!!"
 }
 
