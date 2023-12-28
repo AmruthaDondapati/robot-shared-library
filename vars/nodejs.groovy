@@ -31,7 +31,7 @@ def call(COMPONENT) {
             stage ('SonarChecks') {
                 steps {
                     script {
-                        SonarChecks(COMPONENT)
+                        common.SonarChecks(COMPONENT)
                     }
                 }
             }
