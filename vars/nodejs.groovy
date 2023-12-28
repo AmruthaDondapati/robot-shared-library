@@ -40,7 +40,7 @@ def call(COMPONENT) {
                     expression { env.TAG_NAME != null } 
                 }
                 steps {
-                    sh "npm install"
+                    sh "sudo npm install"
                     sh "zip ${COMPONENT}-${TAG_NAME}.zip node_modules server.js"
                     sh "ls -ltr" 
                     sh "echo Uploading the artifact to nexus"
