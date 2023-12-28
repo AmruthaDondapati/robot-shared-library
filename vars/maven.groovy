@@ -49,7 +49,7 @@ def call(COMPONENT) {
                     expression { env.TAG_NAME != null } 
                 }
                 steps {
-                    sh "Uploading the artifact to nexus"
+                    sh "echo Uploading the artifact to nexus"
                 }
             }
         }
