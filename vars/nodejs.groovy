@@ -40,9 +40,10 @@ def call(COMPONENT) {
                     expression { env.TAG_NAME != null } 
                 }
                 steps {
-                    sh "npm install"
+                    //sh "npm install"
+                    sh "echo npm installed" 
+                }
             }
-        }
             stage ('Preparing the artifacts') {
                 when { 
                     expression { env.TAG_NAME != null } 
