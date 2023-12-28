@@ -28,6 +28,13 @@ def call(COMPONENT) {
                     }
                 }
             }
+            stage ('TestCases') {
+                steps {
+                    script {
+                        common.testCases()
+                    }
+                }
+            }
         }
     }
 }
