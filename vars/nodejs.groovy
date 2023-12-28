@@ -4,12 +4,13 @@ def LintChecks(COMPONENT) {
     sh "echo lint checks completed for ${COMPONENT}"
 }
 
-def SonarChecks(COMPONENT) {
-    sh "echo Checking the Quality Checks"
-    sh "sonar-scanner -Dsonar.host.url=http://${sonar_URL}:9000 -Dsonar.sources=. -Dsonar.projectKey=${COMPONENT} -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW}"
+def sonarChecks(component){
+    sh " echo Starting the quality check..."
+    sh " sonar-scanner -Dsonar.host.url=http://${sonar_URL}:9000 -Dsonar.source=. -Dsonar.projectKey=${COMPONENT} -Dsonar.login=admin -Dsonar.password=123 "
+    sh " curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/sonar-scanner/quality-gate > quality-gate.sh"
+    sh " bash -x quality-gate.sh ${sonar_USR} ${sonar_PSW} ${sonar_URL} ${COMPONENT}"
+    sh " echo lint checks completed for ${COMPONENT}.....!!!!!"
 }
-// Calling the info function and supplying both the values. 
-// LintChecks("DevOps", "DevOpsTraining.com")
 
 def call(COMPONENT) {
     pipeline {
