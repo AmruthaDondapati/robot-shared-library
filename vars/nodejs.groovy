@@ -53,3 +53,4 @@ def call(COMPONENT) {
         }
     }
 }
+}
