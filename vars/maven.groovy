@@ -6,7 +6,7 @@ def LintChecks(COMPONENT) {
 
 def SonarChecks(COMPONENT) {
     sh "echo checking sonarchecks"
-    mvn clean compile
+    sh "mvn clean compile"
     sh "sonar-scanner -Dsonar.host.url=http:${SONAR_URL}:9000  -Dsonar.java.binaries=target/ -Dsonar.projectKey=${COMPONENT}  -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW}"
     // sh "sonar-scanner -Dsonar.host.url=http://${sonar_URL}:9000 -Dsonar.java.binaries=target/ -Dsonar.projectKey=${COMPONENT} -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW}"
 }
