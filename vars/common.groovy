@@ -5,3 +5,23 @@ def SonarChecks(COMPONENT) {
     sh  "bash -x quality-gate.sh ${SONAR_USR} ${SONAR_PSW} ${SONAR_URL} ${COMPONENT}"
     sh " echo Sonar checks completed for ${COMPONENT}.....!!!!!"
 }
+
+def testCases() {
+       parallel(                                                        // This is how we write stages in parallel.
+                "UNIT": {
+                     stage('Unit Tests'){
+                              sh "echo Unit Testing ......."                            
+                        }
+                    },
+                "INTEGRATION": {
+                     stage('Integration Tests'){
+                              sh "echo Integration Testing ......."                          
+                        }
+                    },
+                "FUNCTIONAL": {
+                     stage('Functional Tests'){
+                              sh "echo Functional Testing ......."                          
+                        }
+                    },
+            )
+       }
