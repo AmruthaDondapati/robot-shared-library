@@ -6,7 +6,7 @@ def LintChecks(COMPONENT) {
 
 def SonarChecks(COMPONENT) {
     sh "echo Checking the Quality Checks"
-    sh "sonar-scanner -Dsonar.host.url=http://${sonar_URL}:9000 -Dsonar.source=. -Dsonar.projectKey=${COMPONENT} -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW}"
+    sh "sonar-scanner -Dsonar.host.url=http://${sonar_URL}:9000 -Dsonar.sources=. -Dsonar.projectKey=${COMPONENT} -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW}"
 }
 // Calling the info function and supplying both the values. 
 // LintChecks("DevOps", "DevOpsTraining.com")
