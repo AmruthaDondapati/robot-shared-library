@@ -25,7 +25,7 @@ def call(COMPONENT) {
                     }
                 }
             }
-            tage ('Sonarchecks') {
+            stage ('Sonarchecks') {
                 steps {
                     script {
                         SonarChecks(COMPONENT)
