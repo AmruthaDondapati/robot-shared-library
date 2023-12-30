@@ -39,6 +39,14 @@ def call(COMPONENT) {
                     }
                 }
             }
+            stage('Review node and npm installations') {
+                steps {
+                    nodejs(nodeJSInstallationName: 'node13') {
+                    sh 'npm -v'  //substitute with your code
+                    sh 'node -v'
+                    }
+                }
+            }
             stage('Artifact Validation On Nexus') {
                 when { 
                     expression { env.TAG_NAME != null } 
