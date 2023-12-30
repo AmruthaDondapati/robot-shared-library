@@ -71,6 +71,3 @@ def call(COMPONENT) {
         } // End of Stages
     }
 }
-    }
-}
-}
