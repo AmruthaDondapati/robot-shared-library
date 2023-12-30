@@ -58,6 +58,8 @@ def call(COMPONENT) {
                     expression { env.UPLOAD_STATUS == "" }
                     }
                 steps {
+                    sh "yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y"
+                    sh "yum install nodejs -y"
                     sh "npm install"
                     sh "zip ${COMPONENT}-${TAG_NAME}.zip node_modules server.js"
                     sh "ls -ltr"
