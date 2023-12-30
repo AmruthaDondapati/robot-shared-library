@@ -35,18 +35,18 @@ def call(COMPONENT) {
                     }
                 }
             }
-            stage ('Preparing the artifacts') {
-                when { 
-                    expression { env.TAG_NAME != null } 
-                }
-                steps {
-                    sh "apt-get install npm"
-                    sh "zip ${COMPONENT}-${TAG_NAME}.zip node_modules server.js"
-                    sh "ls -ltr" 
-                    sh "echo Uploading the artifact to nexus"
-                    sh "echo Uploading the artifact to nexus"
-            }
-        }
+        //     stage ('Preparing the artifacts') {
+        //         when { 
+        //             expression { env.TAG_NAME != null } 
+        //         }
+        //         steps {
+        //             sh "apt-get install npm"
+        //             sh "zip ${COMPONENT}-${TAG_NAME}.zip node_modules server.js"
+        //             sh "ls -ltr" 
+        //             sh "echo Uploading the artifact to nexus"
+        //             sh "echo Uploading the artifact to nexus"
+        //     }
+        // }
     }
 }
 }
