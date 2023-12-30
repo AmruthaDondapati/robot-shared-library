@@ -7,6 +7,7 @@ def LintChecks(COMPONENT) {
 def call(COMPONENT) {
     pipeline {
         agent any
+        sh 'mvn --version'
         // environment {
         //     SONAR = credentials ('SONAR')
         //     sonar_URL= "172.31.27.120"
@@ -26,7 +27,7 @@ def call(COMPONENT) {
             stage ('Sonarchecks') {
                 steps {
                     script {
-                        sh "mvn --version"
+                        sh "mvn clean compile"
                         env.ARGS="-Dsonar.java.binaries=target/"
                         common.SonarChecks(COMPONENT)
                     }
